@@ -13,7 +13,7 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #050d30;
             min-height: 100vh;
             padding: 20px;
         }
@@ -295,7 +295,7 @@
 
         function updateMetrics(data) {
             const metricsDiv = document.getElementById('metrics');
-            metricsDiv.innerHTML = '<div class="metric-card"><div class="metric-label">Active Users</div><div class="metric-value">' + data.activeUsers + '</div></div><div class="metric-card"><div class="metric-label">Monthly Transactions</div><div class="metric-value">' + data.monthlyTrans + '</div></div><div class="metric-card"><div class="metric-label">Transaction Volume</div><div class="metric-value">' + data.transVolume + '</div></div><div class="metric-card"><div class="metric-label">Total Revenue</div><div class="metric-value">' + data.totalRevenue + '</div></div><div class="metric-card"><div class="metric-label">Operating Expenses</div><div class="metric-value">' + data.totalOpex + '</div></div><div class="metric-card"><div class="metric-label">Net Profit</div><div class="metric-value ' + (parseFloat(data.profit.replace(/[^0-9.-]/g, '')) >= 0 ? 'positive' : 'negative') + '">' + data.profit + '</div></div>';
+            metricsDiv.innerHTML = '<div class="metric-card"><div class="metric-label">Active Users</div><div class="metric-value">' + data.activeUsers + '</div></div><div class="metric-card"><div class="metric-label">Monthly Transactions</div><div class="metric-value">' + data.monthlyTrans + '</div></div><div class="metric-card"><div class="metric-label">Transaction Volume</div><div class="metric-value">' + data.transVolume + '</div></div><div class="metric-card"><div class="metric-label">Total Revenue</div><div class="metric-value">' + data.totalRevenue + '</div></div><div class="metric-card"><div class="metric-label">Operating Expenses</div><div class="metric-value">' + data.totalOpex + '</div></div><div class="metric-card"><div class="metric-label">Net Profit</div><div class="metric-value ' + (parseFloat(data.profit.replace(/[^0-9.-]/g, '')) >= 0 ? 'positive' : 'negative') + '\">' + data.profit + '</div></div>';
         }
 
         function updateCharts(months, revenueData, profitData) {
@@ -363,7 +363,7 @@
             const table = document.getElementById('projectionTable');
             let html = '<thead><tr><th>Month</th><th>Users</th><th>Revenue</th><th>Operating Expenses</th><th>Net Profit</th></tr></thead><tbody>';
             data.forEach(function(row) {
-                html += '<tr><td>' + row.month + '</td><td>' + formatNumber(row.users) + '</td><td>' + formatCurrency(row.revenue) + '</td><td>' + formatCurrency(row.opex) + '</td><td class="' + (row.profit >= 0 ? 'positive' : 'negative') + '">' + formatCurrency(row.profit) + '</td></tr>';
+                html += '<tr><td>' + row.month + '</td><td>' + formatNumber(row.users) + '</td><td>' + formatCurrency(row.revenue) + '</td><td>' + formatCurrency(row.opex) + '</td><td class="' + (row.profit >= 0 ? 'positive' : 'negative') + '\">' + formatCurrency(row.profit) + '</td></tr>';
             });
             html += '</tbody>';
             table.innerHTML = html;
